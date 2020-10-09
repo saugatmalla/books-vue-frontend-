@@ -6,14 +6,32 @@
           <p class="is-size-1" style="margin-bottom: 40px">Login</p>
           <section>
             <b-field label="Email">
-              <b-input type="email" placeholder="Email" v-model="user.email"> </b-input>
+              <b-input
+                type="email"
+                placeholder="Email"
+                v-model="user.email"
+                required
+              >
+              </b-input>
             </b-field>
 
             <b-field label="Password">
-              <b-input type="password" placeholder="Password" v-model="user.password" password-reveal> </b-input>
+              <b-input
+                type="password"
+                placeholder="Password"
+                v-model="user.password"
+                required
+                password-reveal
+              >
+              </b-input>
             </b-field>
 
-            <b-button type="is-primary is-light" rounded class="mr4" @click="login">
+            <b-button
+              type="is-primary is-light"
+              rounded
+              class="mr4"
+              @click="login"
+            >
               Login
             </b-button>
             <div>
@@ -28,17 +46,15 @@
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
+import { UserLogin } from "@/models/models";
 @Component
 export default class Login extends Vue {
+  user: UserLogin = {
+    email: "",
+    password: "",
+  };
 
-  user: object = {
-    email: null,
-    password: null
-  }
-
-  login(): void {
-    this
-  }
+  login(): void {}
 }
 </script>
 <style>
