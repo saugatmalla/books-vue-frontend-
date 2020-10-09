@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@vue/cli": "^4.5.7",
+    "axios": "^0.20.0",
     "buefy": "^0.8.0",
     "core-js": "^3.6.5",
     "vue": "^2.6.11",

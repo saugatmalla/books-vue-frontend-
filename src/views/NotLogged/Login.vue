@@ -35,7 +35,10 @@
               Login
             </b-button>
             <div>
-              Don't have an account? <span><u>Sign up</u></span>
+              Don't have an account?
+              <router-link :to="{ name: 'Register' }">
+                <span><u>Sign up</u></span>
+              </router-link>
             </div>
           </section>
         </div>
@@ -54,7 +57,9 @@ export default class Login extends Vue {
     password: "",
   };
 
-  login(): void {}
+  login(): void {
+    console.log(this.$router.push({ name: "Register" }));
+  }
 }
 </script>
 <style>

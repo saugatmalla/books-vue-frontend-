@@ -6,11 +6,21 @@
           <p class="is-size-1" style="margin-bottom: 40px">Sign Up</p>
           <section>
             <b-field label="Name">
-              <b-input type="text" placeholder="Full Name" v-model="user.name" required>
+              <b-input
+                type="text"
+                placeholder="Full Name"
+                v-model="user.name"
+                required
+              >
               </b-input>
             </b-field>
             <b-field label="Email">
-              <b-input type="email" placeholder="Email" v-model="user.email" required>
+              <b-input
+                type="email"
+                placeholder="Email"
+                v-model="user.email"
+                required
+              >
               </b-input>
             </b-field>
 
@@ -35,7 +45,10 @@
               Signup
             </b-button>
             <div>
-              Already have an account? <span><u>Login</u></span>
+              Already have an account?
+              <router-link :to="{ name: 'Login' }">
+                <span><u>Login</u></span>
+              </router-link>
             </div>
           </section>
         </div>
@@ -46,16 +59,19 @@
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
+import { mapActions } from 'vuex';
+import { UserSignup } from "@/models/models";
 @Component
 export default class Login extends Vue {
-  user: object = {
-    name: null,
-    email: null,
-    password: null,
+  user: UserSignup = {
+    name: "",
+    email: "",
+    password: "",
   };
 
   signup(): void {
-    this;
+    const {name, email, password} = this.user
+    console.log(name, email, password)
   }
 }
 </script>
