@@ -154,6 +154,7 @@
 </template>
 
 <script>
+import {mapActions} from 'vuex'
 import { required, email, minLength, sameAs } from "vuelidate/lib/validators";
 
 function initialData() {
@@ -201,15 +202,18 @@ export default {
   computed: {},
 
   methods: {
-    register() {
+    ...mapActions({
+      va_register: 'auth/REGISTER_USER'
+    }),
+    async register() {
       const { name, email, password } = this;
       const data = { name, email, password };
-
-      if (!this.$v.$invalid) {
-        this.$router.push({ name: "Dashboard" });
-      } else {
-        this.$v.$touch();
-      }
+      await this.va_register(data)
+      // if (!this.$v.$invalid) {
+      //   this.$router.push({ name: "Dashboard" });
+      // } else {
+      //   this.$v.$touch();
+      // }
     },
   },
 };

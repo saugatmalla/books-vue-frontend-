@@ -1,6 +1,6 @@
 import instance from './client'
 
-class Auth {
+export default {
     register(data = {}) {
         return instance({
             method: 'post',
@@ -10,4 +10,3 @@ class Auth {
     }
 }
 
-export default Auth
